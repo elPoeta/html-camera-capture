@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camera Capture</title>
+  <style>
+    * {
+      font-size: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <label for="environment">Capture environment:</label>
+  <br>
+  <input type="file" id="environment" capture="environment" accept="video/*">
+  <br><br>
+  <label for="user">Capture user:</label>
+  <br>
+  <input type="file" id="user" capture="user" accept="image/*">
+  <br><br>
+  <label for="voice">Capture voice:</label>
+  <br>
+  <input type="file" id="voice" capture="user" accept="audio/*">
+</body>
+
+</html>
