@@ -16,14 +16,61 @@
   <label for="environment">Capture environment:</label>
   <br>
   <input type="file" id="environment" capture="environment" accept="video/*">
+  <br> <br>
+  <label for="videoCapture">Capture</label>
+  <input type="checkbox" id="videoCapture" checked />
   <br><br>
   <label for="user">Capture user:</label>
   <br>
   <input type="file" id="user" capture="user" accept="image/*">
+  <br> <br>
+  <label for="imageCapture">Capture</label>
+  <input type="checkbox" id="imageCapture" checked />
   <br><br>
   <label for="voice">Capture voice:</label>
   <br>
   <input type="file" id="voice" capture="user" accept="audio/*">
+  <br> <br>
+  <label for="micCapture">Capture</label>
+  <input type="checkbox" id="micCapture" checked />
+  <script>
+    document.querySelector('#videoCapture')
+      .addEventListener('change', ev => {
+        ev.preventDefault();
+        const checked = ev.target.checked;
+        console.log(checked)
+        if (checked) {
+          document.querySelector('#environment').setAttribute('capture', 'environment');
+        } else {
+          document.querySelector('#environment').removeAttribute('capture');
+        }
+      })
+
+    document.querySelector('#imageCapture')
+      .addEventListener('change', ev => {
+        ev.preventDefault();
+        const checked = ev.target.checked;
+        console.log(checked)
+        if (checked) {
+          document.querySelector('#user').setAttribute('capture', 'user');
+        } else {
+          document.querySelector('#user').removeAttribute('capture');
+        }
+      })
+
+    document.querySelector('#micCapture')
+      .addEventListener('change', ev => {
+        ev.preventDefault();
+        const checked = ev.target.checked;
+        console.log(checked)
+        if (checked) {
+          document.querySelector('#voice').setAttribute('capture', 'user');
+        } else {
+          document.querySelector('#voice').removeAttribute('capture');
+        }
+      })
+
+  </script>
 </body>
 
 </html>
