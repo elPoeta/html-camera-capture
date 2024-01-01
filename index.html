@@ -33,6 +33,12 @@
   <br> <br>
   <label for="micCapture">Capture</label>
   <input type="checkbox" id="micCapture" checked />
+  <br>
+  <br>
+  <button id="nanoid">nano-ID</button>
+  <br>
+  <br>
+  <pre></pre>
   <script>
     document.querySelector('#videoCapture')
       .addEventListener('change', ev => {
@@ -70,6 +76,13 @@
         }
       })
 
+      const nanoid=(t=21)=>crypto.getRandomValues(new Uint8Array(t)).reduce(((t,e)=>t+=(e&=63)<36?e.toString(36):e<62?(e-26).toString(36).toUpperCase():e>62?"-":"_"),"");
+   
+      document.querySelector('#nanoid')
+       .addEventListener('click', ev => {
+          const randomName = nanoid();
+          document.querySelector('pre').innerHTML = randomName; 
+       });
   </script>
 </body>
 
