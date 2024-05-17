@@ -39,7 +39,10 @@
   <br>
   <br>
   <pre></pre>
-  
+  <br>
+  <input type="email" value="" id="email">
+  <br>
+  <button id="mailto">mail</button>
   <script>
     document.querySelector('#videoCapture')
       .addEventListener('change', ev => {
@@ -84,6 +87,19 @@
           const randomName = nanoid();
           document.querySelector('pre').innerHTML = randomName; 
        });
+    document.querySelector('#mailto')
+      .addEventListener('click', ev => {
+        ev.preventDefault();
+        const email = document.querySelector('#email').value().trim();
+        sendEmail({ email, subject: "test open email", body: "este es el cuerpo del e-mail\n otra linea"});
+        
+      });
+    function sendEmail(message) {
+      var email = message.email;
+      var subject = message.subject;
+      var emailBody = message.body;
+      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+}
   </script>
 </body>
 
